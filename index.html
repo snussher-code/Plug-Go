@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plug&Go — Estaciones de carga rápida</title>
+    <meta name="description" content="Plug&Go instala y opera tótems de recarga rápida para móviles con pantalla, lockers y gestión remota. Ideal para shoppings, clínicas, aeropuertos y retail." />
+    <meta name="theme-color" content="#231B2E" />
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: "#231B2E",
+              accent: "#A6E22E",
+            },
+          },
+        },
+      };
+    </script>
+    <style>body{background-color:#231B2E}</style>
+
+    <!-- ESM imports (React + ReactDOM + Framer Motion + Lucide + htm) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+          "framer-motion": "https://esm.sh/framer-motion@11.5.4",
+          "lucide-react": "https://esm.sh/lucide-react@0.460.0?deps=react@18.2.0",
+          "htm": "https://esm.sh/htm@3.1.1"
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen text-white">
+    <div id="root"></div>
+
+    <script type="module">
+      import React from "react";
+      import { createRoot } from "react-dom/client";
+      import { motion } from "framer-motion";
+      import { Zap, ShieldCheck, Clock, Wifi, Lock, Cpu, PhoneCall, MapPin, ChevronRight, CheckCircle2, Mail, Globe2, Store, Building2 } from "lucide-react";
+      import htm from "htm";
+
+      const html = htm.bind(React.createElement);
+
+      const brand = { bg: "#231B2E", accent: "#A6E22E", text: "#F4F4F5" };
+
+      const Logo = ({ className = "w-40" }) => html`
+        <div className=${"inline-flex items-center gap-2 " + className}>
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27 4c-7.2 0-13 5.8-13 13v8c0 2.1.8 4.1 2.3 5.7l2.9 2.9c.9.9 1.4 2.1 1.4 3.4v.2c0 1.6-.6 3.1-1.8 4.2l-2.6 2.6c-2.2 2.2-2.2 5.7 0 7.9 1.1 1.1 2.5 1.6 4 1.6h9.3c2.7 0 5.2-1.4 6.6-3.7l12.8-21.4c3.2-5.4-.6-12.2-6.8-12.2H38l2.7-6.5C42 8.2 39.9 4 35.9 4H27z" fill=${brand.accent}/>
+            <path d="M33 13l-7 14h10l-5 12 17-19h-12l4-7h-7z" fill=${brand.bg}/>
+          </svg>
+          <span className="text-2xl font-bold tracking-tight" style=${{color: brand.text}}>Plug&Go</span>
+        </div>
+      `;
+
+      const Feature = ({ icon: Icon, title, desc }) => html`
+        <div className="group rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow hover:shadow-lg transition">
+          <${Icon} className="mb-3 h-7 w-7" color=${brand.accent} />
+          <h3 className="text-lg font-semibold text-zinc-50">${title}</h3>
+          <p className="mt-1 text-sm text-zinc-300">${desc}</p>
+        </div>
+      `;
+
+      const Stat = ({ value, label }) => html`
+        <div className="rounded-2xl bg-[#2B2238] p-6 text-center border border-zinc-700/40">
+          <div className="text-3xl font-bold" style=${{color: brand.accent}}>${value}</div>
+          <div className="mt-1 text-sm text-zinc-300">${label}</div>
+        </div>
+      `;
+
+      const ProductCard = ({ title, subtitle, points }) => html`
+        <div className="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <${Zap} color=${brand.accent} />
+            <h4 className="text-xl font-semibold text-zinc-50">${title}</h4>
+          </div>
+          <p className="text-sm text-zinc-300">${subtitle}</p>
+          <ul className="mt-2 space-y-2">
+            ${points.map(p => html`<li className="flex items-start gap-2 text-sm text-zinc-100">
+              <${CheckCircle2} className="mt-0.5 h-4 w-4" color=${brand.accent} /> ${p}
+            </li>`)}
+          </ul>
+          <button className="mt-4 inline-flex items-center gap-2 self-start rounded-xl bg-[#3A2A4A] px-4 py-2 text-sm text-zinc-100 hover:bg-[#45325A]">
+            Solicitar demo <${ChevronRight} className="h-4 w-4" />
+          </button>
+        </div>
+      `;
+
+      const FAQ = ({ q, a }) => html`
+        <details className="group rounded-xl border border-zinc-700/60 bg-[#2B2238] p-5">
+          <summary className="cursor-pointer list-none text-zinc-50 font-medium">${q}</summary>
+          <p className="mt-2 text-sm text-zinc-300">${a}</p>
+        </details>
+      `;
+
+      const App = () => html`
+        <div className="min-h-screen w-full" style=${{ backgroundColor: brand.bg }}>
+          <header className="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-[#231B2E]/80">
+            <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+              <${Logo} />
+              <nav className="hidden md:flex items-center gap-6 text-zinc-200">
+                <a href="#features" className="hover:text-white">Características</a>
+                <a href="#productos" className="hover:text-white">Productos</a>
+                <a href="#como-funciona" className="hover:text-white">Cómo funciona</a>
+                <a href="#contacto" className="hover:text-white">Contacto</a>
+                <a href="#franquicias" className="hover:text-white">Franquicias</a>
+              </nav>
+              <a href="#contacto" className="rounded-xl px-4 py-2 text-sm font-semibold" style=${{ backgroundColor: brand.accent, color: "#111" }}>Cotizar</a>
+            </div>
+          </header>
+
+          <section className="relative">
+            <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+              <${motion.div} initial=${{opacity:0, y:20}} animate=${{opacity:1, y:0}} transition=${{duration:0.5}}>
+                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-zinc-50">
+                  Estaciones de <span style=${{color: brand.accent}}>carga rápida</span> para móviles
+                </h1>
+                <p className="mt-4 text-zinc-300 text-lg">
+                  Plug&Go instala y opera tótems de recarga con pantalla, lockers y gestión remota. Ideal para shoppings, clínicas, aeropuertos, estadios y retail.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a href="#contacto" className="rounded-xl bg-zinc-100/10 px-5 py-3 text-sm text-zinc-100 border border-zinc-600 hover:bg-zinc-100/20">Quiero cotizar</a>
+                  <a href="#productos" className="rounded-xl bg-[#3A2A4A] px-5 py-3 text-sm text-zinc-100 hover:bg-[#45325A]">Ver modelos</a>
+                </div>
+                <div className="mt-8 grid grid-cols-3 gap-4">
+                  <${Stat} value="+6 puertos" label="USB/Type‑C + Wireless" />
+                  <${Stat} value=">90% sat." label="Satisfacción de usuarios" />
+                  <${Stat} value="24/7" label="Monitoreo y soporte" />
+                </div>
+              </${motion.div}>
+
+              <${motion.div} initial=${{opacity:0, y:20}} animate=${{opacity:1, y:0}} transition=${{duration:0.6}} className="relative">
+                <div className="rounded-3xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow-2xl">
+                  <div className="rounded-2xl bg-[#1D1526] aspect-[9/16] w-full grid place-items-center">
+                    <div className="text-center">
+                      <${Logo} className="w-32 mx-auto" />
+                      <p className="mt-3 text-sm text-zinc-300">Totem 43&quot; con lockers x6</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-3 text-xs text-zinc-300">
+                    <div className="flex items-center gap-2"><${Clock} className="h-4 w-4" color=${brand.accent}/>Carga rápida</div>
+                    <div className="flex items-center gap-2"><${Wifi} className="h-4 w-4" color=${brand.accent}/>4G/Wi‑Fi</div>
+                    <div className="flex items-center gap-2"><${Lock} className="h-4 w-4" color=${brand.accent}/>Lockers</div>
+                  </div>
+                </div>
+              </${motion.div}>
+            </div>
+          </section>
+
+          <section id="features" className="py-16 md:py-24">
+            <div className="mx-auto max-w-6xl px-4">
+              <h2 className="text-3xl font-bold text-zinc-50">¿Por qué Plug&Go?</h2>
+              <p className="mt-2 text-zinc-300">Tecnología confiable, experiencia de usuario cuidada y modelo de negocio rentable.</p>
+              <div className="mt-8 grid md:grid-cols-3 gap-5">
+                <${Feature} icon=${ShieldCheck} title="Seguridad y certificaciones" desc="Protecciones contra sobrecarga, CE/FCC/ROHS* y reporte de salud de puertos. (*según modelo)"/>
+                <${Feature} icon=${Cpu} title="Gestión remota" desc="Dashboard con analytics, control OTA, monetización por QR/MP y campañas publicitarias."/>
+                <${Feature} icon=${Clock} title="Instalación express" desc="Despliegue en 7–14 días, mantenimiento preventivo y reemplazo hot‑swap."/>
+              </div>
+            </div>
+          </section>
+
+          <section id="productos" className="py-16 md:py-24">
+            <div className="mx-auto max-w-6xl px-4">
+              <h2 className="text-3xl font-bold text-zinc-50">Modelos disponibles</h2>
+              <p className="mt-2 text-zinc-300">Totems y estaciones para distintas necesidades.</p>
+              <div className="mt-8 grid md:grid-cols-3 gap-6">
+                <${ProductCard}
+                  title="Totem 43"
+                  subtitle='Pantalla 43" FHD, 6 lockers, 8 puertos (USB‑A/C), 15W inalámbrico'
+                  points=${["Publicidad programable","Cobro QR/MP y gratis con sponsor","Monitoreo y alertas 24/7"]}
+                />
+                <${ProductCard}
+                  title="Totem Slim 32"
+                  subtitle='Formato delgado, 32" con 4 lockers, ideal para pasillos'
+                  points=${["Footprint reducido","Wi‑Fi/4G + control OTA","Opcional: branding completo"]}
+                />
+                <${ProductCard}
+                  title="Counter 21.5"
+                  subtitle="Estación de mostrador con 8 cables retráctiles y carga wireless"
+                  points=${["Fácil anclaje","Panel superior para sponsors","Kit de seguridad anti‑manipulación"]}
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="como-funciona" className="py-16 md:py-24">
+            <div className="mx-auto max-w-6xl px-4">
+              <h2 className="text-3xl font-bold text-zinc-50">Cómo funciona</h2>
+              <div className="mt-8 grid md:grid-cols-4 gap-5">
+                ${[
+                  {t: "Escaneo", d: "El usuario escanea el QR en pantalla o locker."},
+                  {t: "Selección", d: "Elige el puerto/cable o locker disponible."},
+                  {t: "Pago/Gratis", d: "Pago por QR/MP o gratuito con sponsor/beneficio."},
+                  {t: "Recarga", d: "Carga segura y rápida. Notificaciones opcionales."},
+                ].map((s,i) => html`
+                  <div className="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+                    <div className="text-sm text-zinc-400">Paso ${i+1}</div>
+                    <div className="mt-1 text-lg font-semibold text-zinc-50">${s.t}</div>
+                    <p className="mt-1 text-sm text-zinc-300">${s.d}</p>
+                  </div>
+                `)}
+              </div>
+            </div>
+          </section>
+
+          <section id="franquicias" className="py-16 md:py-24">
+            <div className="mx-auto max-w-6xl px-4">
+              <h2 className="text-3xl font-bold text-zinc-50">Operación y modelos comerciales</h2>
+              <div className="mt-8 grid md:grid-cols-3 gap-6">
+                <div className="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+                  <div className="flex items-center gap-2"><${Store} color=${brand.accent}/><h3 className="font-semibold text-zinc-50">Renta mensual</h3></div>
+                  <p className="mt-2 text-sm text-zinc-300">El venue paga una renta fija. Incluye mantenimiento y soporte 24/7.</p>
+                </div>
+                <div className="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+                  <div className="flex items-center gap-2"><${Building2} color=${brand.accent}/><h3 className="font-semibold text-zinc-50">Revenue share</h3></div>
+                  <p className="mt-2 text-sm text-zinc-300">Ingresos por publicidad y recarga se comparten con el venue.</p>
+                </div>
+                <div className="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+                  <div className="flex items-center gap-2"><${Globe2} color=${brand.accent}/><h3 className="font-semibold text-zinc-50">Franquicia</h3></div>
+                  <p className="mt-2 text-sm text-zinc-300">Operadores regionales con marca Plug&Go, kit de arranque y soporte.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="contacto" className="py-16 md:py-24">
+            <div className="mx-auto max-w-5xl px-4">
+              <div className="rounded-3xl border border-zinc-700/60 bg-[#2B2238] p-8 md:p-10 grid md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-3xl font-bold text-zinc-50">Solicitá una cotización</h2>
+                  <p className="mt-2 text-zinc-300">Contanos sobre tus ubicaciones y volumen esperado. Respondemos en 24hs hábiles.</p>
+                  <div className="mt-6 space-y-3 text-sm text-zinc-300">
+                    <div className="flex items-center gap-2"><${PhoneCall} className="h-4 w-4" color=${brand.accent}/> WhatsApp: +54 9 11 0000 0000</div>
+                    <div className="flex items-center gap-2"><${Mail} className="h-4 w-4" color=${brand.accent}/> hola@plugandgo.com.ar</div>
+                    <div className="flex items-center gap-2"><${MapPin} className="h-4 w-4" color=${brand.accent}/> CABA · GBA · Interior</div>
+                  </div>
+                </div>
+                <form onSubmit=${(e)=>e.preventDefault()} className="grid gap-3">
+                  <input className="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Nombre y apellido"/>
+                  <input className="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Email"/>
+                  <input className="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="WhatsApp"/>
+                  <select className="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-300 outline-none border border-zinc-700/60">
+                    <option>Interés principal</option>
+                    <option>Renta mensual</option>
+                    <option>Revenue share</option>
+                    <option>Franquicia</option>
+                  </select>
+                  <textarea rows="4" className="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Cantidad de puestos / ubicaciones / plazos"></textarea>
+                  <button className="mt-1 rounded-xl px-5 py-3 text-sm font-semibold text-black" style="background-color:#A6E22E">
+                    Enviar consulta
+                  </button>
+                  <p className="text-xs text-zinc-500">Al enviar, aceptás los Términos y Política de Privacidad.</p>
+                </form>
+              </div>
+            </div>
+          </section>
+
+          <section className="pb-20">
+            <div className="mx-auto max-w-5xl px-4">
+              <h2 className="text-3xl font-bold text-zinc-50">Preguntas frecuentes</h2>
+              <div className="mt-6 grid md:grid-cols-2 gap-4">
+                <${FAQ} q="¿Los equipos tienen garantía?" a="Sí, 12 meses contra defectos de fabricación. Opcionalmente, cobertura extendida." />
+                <${FAQ} q="¿Puedo personalizar el branding?" a="Sí, imprimimos vinilos y UI a medida para marcas y venues." />
+                <${FAQ} q="¿Qué medios de pago aceptan?" a="QR interoperable, Mercado Pago y planes B2B. También modo gratuito." />
+                <${FAQ} q="¿Requiere obra?" a="Solo toma de corriente y conectividad (Wi‑Fi/4G). Ofrecemos site survey previo." />
+              </div>
+            </div>
+          </section>
+
+          <footer className="border-t border-zinc-700/60">
+            <div className="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-6 text-sm text-zinc-400">
+              <div>
+                <${Logo} className="w-28" />
+                <p className="mt-2">© ${new Date().getFullYear()} Plug&Go S.R.L. — Argentina</p>
+              </div>
+              <div>
+                <div className="font-semibold text-zinc-200">Empresa</div>
+                <ul className="mt-2 space-y-1">
+                  <li><a href="#features" className="hover:text-zinc-100">Características</a></li>
+                  <li><a href="#productos" className="hover:text-zinc-100">Productos</a></li>
+                  <li><a href="#franquicias" className="hover:text-zinc-100">Franquicias</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-zinc-200">Contacto</div>
+                <ul className="mt-2 space-y-1">
+                  <li>hola@plugandgo.com.ar</li>
+                  <li>WhatsApp +54 9 11 0000 0000</li>
+                  <li>Política de Privacidad</li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+        </div>
+      `;
+
+      const root = createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>
