@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plug&Go — Estaciones de carga rápida</title>
+    <meta name="description" content="Plug&Go instala y opera tótems de recarga rápida para móviles con pantalla, lockers y gestión remota. Ideal para shoppings, clínicas, aeropuertos y retail." />
+    <meta name="theme-color" content="#231B2E" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { brand: "#231B2E", accent: "#A6E22E" },
+          },
+        },
+      };
+    </script>
+    <style>body{background-color:#231B2E}</style>
+  </head>
+  <body class="min-h-screen text-white">
+    <!-- NAV -->
+    <header class="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-[#231B2E]/80">
+      <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+        <div class="inline-flex items-center gap-2 w-40">
+          <!-- Inline Logo -->
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27 4c-7.2 0-13 5.8-13 13v8c0 2.1.8 4.1 2.3 5.7l2.9 2.9c.9.9 1.4 2.1 1.4 3.4v.2c0 1.6-.6 3.1-1.8 4.2l-2.6 2.6c-2.2 2.2-2.2 5.7 0 7.9 1.1 1.1 2.5 1.6 4 1.6h9.3c2.7 0 5.2-1.4 6.6-3.7l12.8-21.4c3.2-5.4-.6-12.2-6.8-12.2H38l2.7-6.5C42 8.2 39.9 4 35.9 4H27z" fill="#A6E22E"/>
+            <path d="M33 13l-7 14h10l-5 12 17-19h-12l4-7h-7z" fill="#231B2E"/>
+          </svg>
+          <span class="text-2xl font-bold tracking-tight">Plug&Go</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-zinc-200">
+          <a href="#features" class="hover:text-white">Características</a>
+          <a href="#productos" class="hover:text-white">Productos</a>
+          <a href="#como-funciona" class="hover:text-white">Cómo funciona</a>
+          <a href="#contacto" class="hover:text-white">Contacto</a>
+          <a href="#franquicias" class="hover:text-white">Franquicias</a>
+        </nav>
+        <a href="#contacto" class="rounded-xl px-4 py-2 text-sm font-semibold" style="background-color:#A6E22E;color:#111">Cotizar</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative">
+      <div class="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-zinc-50">
+            Estaciones de <span style="color:#A6E22E">carga rápida</span> para móviles
+          </h1>
+          <p class="mt-4 text-zinc-300 text-lg">
+            Plug&Go instala y opera tótems de recarga con pantalla, lockers y gestión remota. Ideal para shoppings, clínicas, aeropuertos, estadios y retail.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contacto" class="rounded-xl bg-zinc-100/10 px-5 py-3 text-sm text-zinc-100 border border-zinc-600 hover:bg-zinc-100/20">Quiero cotizar</a>
+            <a href="#productos" class="rounded-xl bg-[#3A2A4A] px-5 py-3 text-sm text-zinc-100 hover:bg-[#45325A]">Ver modelos</a>
+          </div>
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-[#2B2238] p-6 text-center border border-zinc-700/40">
+              <div class="text-3xl font-bold" style="color:#A6E22E">+6 puertos</div>
+              <div class="mt-1 text-sm text-zinc-300">USB/Type‑C + Wireless</div>
+            </div>
+            <div class="rounded-2xl bg-[#2B2238] p-6 text-center border border-zinc-700/40">
+              <div class="text-3xl font-bold" style="color:#A6E22E">&gt;90% sat.</div>
+              <div class="mt-1 text-sm text-zinc-300">Satisfacción de usuarios</div>
+            </div>
+            <div class="rounded-2xl bg-[#2B2238] p-6 text-center border border-zinc-700/40">
+              <div class="text-3xl font-bold" style="color:#A6E22E">24/7</div>
+              <div class="mt-1 text-sm text-zinc-300">Monitoreo y soporte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-3xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow-2xl">
+            <div class="rounded-2xl bg-[#1D1526] aspect-[9/16] w-full grid place-items-center">
+              <div class="text-center">
+                <div class="inline-flex items-center gap-2 w-32 mx-auto justify-center">
+                  <!-- mini logo -->
+                  <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27 4c-7.2 0-13 5.8-13 13v8c0 2.1.8 4.1 2.3 5.7l2.9 2.9c.9.9 1.4 2.1 1.4 3.4v.2c0 1.6-.6 3.1-1.8 4.2l-2.6 2.6c-2.2 2.2-2.2 5.7 0 7.9 1.1 1.1 2.5 1.6 4 1.6h9.3c2.7 0 5.2-1.4 6.6-3.7l12.8-21.4c3.2-5.4-.6-12.2-6.8-12.2H38l2.7-6.5C42 8.2 39.9 4 35.9 4H27z" fill="#A6E22E"/>
+                    <path d="M33 13l-7 14h10l-5 12 17-19h-12l4-7h-7z" fill="#231B2E"/>
+                  </svg>
+                  <span class="text-xl font-bold tracking-tight">Plug&Go</span>
+                </div>
+                <p class="mt-3 text-sm text-zinc-300">Totem 43&quot; con lockers x6</p>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-3 gap-3 text-xs text-zinc-300">
+              <div class="flex items-center gap-2">⚡ Carga rápida</div>
+              <div class="flex items-center gap-2">📶 4G/Wi‑Fi</div>
+              <div class="flex items-center gap-2">🔒 Lockers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold text-zinc-50">¿Por qué Plug&Go?</h2>
+        <p class="mt-2 text-zinc-300">Tecnología confiable, experiencia de usuario cuidada y modelo de negocio rentable.</p>
+        <div class="mt-8 grid md:grid-cols-3 gap-5">
+          <div class="group rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow hover:shadow-lg transition">
+            <div class="mb-3 text-2xl">🛡️</div>
+            <h3 class="text-lg font-semibold text-zinc-50">Seguridad y certificaciones</h3>
+            <p class="mt-1 text-sm text-zinc-300">Protecciones contra sobrecarga, CE/FCC/ROHS* y reporte de salud de puertos. (*según modelo)</p>
+          </div>
+          <div class="group rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow hover:shadow-lg transition">
+            <div class="mb-3 text-2xl">🖥️</div>
+            <h3 class="text-lg font-semibold text-zinc-50">Gestión remota</h3>
+            <p class="mt-1 text-sm text-zinc-300">Dashboard con analytics, control OTA, monetización por QR/MP y campañas publicitarias.</p>
+          </div>
+          <div class="group rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 shadow hover:shadow-lg transition">
+            <div class="mb-3 text-2xl">⏱️</div>
+            <h3 class="text-lg font-semibold text-zinc-50">Instalación express</h3>
+            <p class="mt-1 text-sm text-zinc-300">Despliegue en 7–14 días, mantenimiento preventivo y reemplazo hot‑swap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold text-zinc-50">Modelos disponibles</h2>
+        <p class="mt-2 text-zinc-300">Totems y estaciones para distintas necesidades.</p>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 flex flex-col gap-3">
+            <div class="flex items-center gap-2"><div class="text-xl">⚡</div><h4 class="text-xl font-semibold text-zinc-50">Totem 43</h4></div>
+            <p class="text-sm text-zinc-300">Pantalla 43&quot; FHD, 6 lockers, 8 puertos (USB‑A/C), 15W inalámbrico</p>
+            <ul class="mt-2 space-y-2 text-sm text-zinc-100">
+              <li>✔ Publicidad programable</li>
+              <li>✔ Cobro QR/MP y gratis con sponsor</li>
+              <li>✔ Monitoreo y alertas 24/7</li>
+            </ul>
+            <a href="#contacto" class="mt-4 inline-flex items-center gap-2 self-start rounded-xl bg-[#3A2A4A] px-4 py-2 text-sm text-zinc-100 hover:bg-[#45325A]">Solicitar demo →</a>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 flex flex-col gap-3">
+            <div class="flex items-center gap-2"><div class="text-xl">⚡</div><h4 class="text-xl font-semibold text-zinc-50">Totem Slim 32</h4></div>
+            <p class="text-sm text-zinc-300">Formato delgado, 32&quot; con 4 lockers, ideal para pasillos</p>
+            <ul class="mt-2 space-y-2 text-sm text-zinc-100">
+              <li>✔ Footprint reducido</li>
+              <li>✔ Wi‑Fi/4G + control OTA</li>
+              <li>✔ Opcional: branding completo</li>
+            </ul>
+            <a href="#contacto" class="mt-4 inline-flex items-center gap-2 self-start rounded-xl bg-[#3A2A4A] px-4 py-2 text-sm text-zinc-100 hover:bg-[#45325A]">Solicitar demo →</a>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6 flex flex-col gap-3">
+            <div class="flex items-center gap-2"><div class="text-xl">⚡</div><h4 class="text-xl font-semibold text-zinc-50">Counter 21.5</h4></div>
+            <p class="text-sm text-zinc-300">Estación de mostrador con 8 cables retráctiles y carga wireless</p>
+            <ul class="mt-2 space-y-2 text-sm text-zinc-100">
+              <li>✔ Fácil anclaje</li>
+              <li>✔ Panel superior para sponsors</li>
+              <li>✔ Kit de seguridad anti‑manipulación</li>
+            </ul>
+            <a href="#contacto" class="mt-4 inline-flex items-center gap-2 self-start rounded-xl bg-[#3A2A4A] px-4 py-2 text-sm text-zinc-100 hover:bg-[#45325A]">Solicitar demo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold text-zinc-50">Cómo funciona</h2>
+        <div class="mt-8 grid md:grid-cols-4 gap-5">
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="text-sm text-zinc-400">Paso 1</div>
+            <div class="mt-1 text-lg font-semibold text-zinc-50">Escaneo</div>
+            <p class="mt-1 text-sm text-zinc-300">El usuario escanea el QR en pantalla o locker.</p>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="text-sm text-zinc-400">Paso 2</div>
+            <div class="mt-1 text-lg font-semibold text-zinc-50">Selección</div>
+            <p class="mt-1 text-sm text-zinc-300">Elige el puerto/cable o locker disponible.</p>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="text-sm text-zinc-400">Paso 3</div>
+            <div class="mt-1 text-lg font-semibold text-zinc-50">Pago/Gratis</div>
+            <p class="mt-1 text-sm text-zinc-300">Pago por QR/MP o gratuito con sponsor/beneficio.</p>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="text-sm text-zinc-400">Paso 4</div>
+            <div class="mt-1 text-lg font-semibold text-zinc-50">Recarga</div>
+            <p class="mt-1 text-sm text-zinc-300">Carga segura y rápida. Notificaciones opcionales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRANQUICIAS / B2B -->
+    <section id="franquicias" class="py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-3xl font-bold text-zinc-50">Operación y modelos comerciales</h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="flex items-center gap-2"><div class="text-xl">🏬</div><h3 class="font-semibold text-zinc-50">Renta mensual</h3></div>
+            <p class="mt-2 text-sm text-zinc-300">El venue paga una renta fija. Incluye mantenimiento y soporte 24/7.</p>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="flex items-center gap-2"><div class="text-xl">🏢</div><h3 class="font-semibold text-zinc-50">Revenue share</h3></div>
+            <p class="mt-2 text-sm text-zinc-300">Ingresos por publicidad y recarga se comparten con el venue.</p>
+          </div>
+          <div class="rounded-2xl border border-zinc-700/50 bg-[#2B2238] p-6">
+            <div class="flex items-center gap-2"><div class="text-xl">🌐</div><h3 class="font-semibold text-zinc-50">Franquicia</h3></div>
+            <p class="mt-2 text-sm text-zinc-300">Operadores regionales con marca Plug&Go, kit de arranque y soporte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-16 md:py-24">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="rounded-3xl border border-zinc-700/60 bg-[#2B2238] p-8 md:p-10 grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-3xl font-bold text-zinc-50">Solicitá una cotización</h2>
+            <p class="mt-2 text-zinc-300">Contanos sobre tus ubicaciones y volumen esperado. Respondemos en 24hs hábiles.</p>
+            <div class="mt-6 space-y-3 text-sm text-zinc-300">
+              <div class="flex items-center gap-2">📞 WhatsApp: +54 9 11 0000 0000</div>
+              <div class="flex items-center gap-2">✉️ hola@plugandgo.com.ar</div>
+              <div class="flex items-center gap-2">📍 CABA · GBA · Interior</div>
+            </div>
+          </div>
+          <form onsubmit="return false" class="grid gap-3">
+            <input class="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Nombre y apellido">
+            <input class="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Email">
+            <input class="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="WhatsApp">
+            <select class="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-300 outline-none border border-zinc-700/60">
+              <option>Interés principal</option>
+              <option>Renta mensual</option>
+              <option>Revenue share</option>
+              <option>Franquicia</option>
+            </select>
+            <textarea rows="4" class="rounded-xl bg-[#1D1526] px-4 py-3 text-sm text-zinc-100 outline-none border border-zinc-700/60" placeholder="Cantidad de puestos / ubicaciones / plazos"></textarea>
+            <button class="mt-1 rounded-xl px-5 py-3 text-sm font-semibold text-black" style="background-color:#A6E22E">Enviar consulta</button>
+            <p class="text-xs text-zinc-500">Al enviar, aceptás los Términos y Política de Privacidad.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pb-20">
+      <div class="mx-auto max-w-5xl px-4">
+        <h2 class="text-3xl font-bold text-zinc-50">Preguntas frecuentes</h2>
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <details class="group rounded-xl border border-zinc-700/60 bg-[#2B2238] p-5">
+            <summary class="cursor-pointer list-none text-zinc-50 font-medium">¿Los equipos tienen garantía?</summary>
+            <p class="mt-2 text-sm text-zinc-300">Sí, 12 meses contra defectos de fabricación. Opcionalmente, cobertura extendida.</p>
+          </details>
+          <details class="group rounded-xl border border-zinc-700/60 bg-[#2B2238] p-5">
+            <summary class="cursor-pointer list-none text-zinc-50 font-medium">¿Puedo personalizar el branding?</summary>
+            <p class="mt-2 text-sm text-zinc-300">Sí, imprimimos vinilos y UI a medida para marcas y venues.</p>
+          </details>
+          <details class="group rounded-xl border border-zinc-700/60 bg-[#2B2238] p-5">
+            <summary class="cursor-pointer list-none text-zinc-50 font-medium">¿Qué medios de pago aceptan?</summary>
+            <p class="mt-2 text-sm text-zinc-300">QR interoperable, Mercado Pago y planes B2B. También modo gratuito.</p>
+          </details>
+          <details class="group rounded-xl border border-zinc-700/60 bg-[#2B2238] p-5">
+            <summary class="cursor-pointer list-none text-zinc-50 font-medium">¿Requiere obra?</summary>
+            <p class="mt-2 text-sm text-zinc-300">Solo toma de corriente y conectividad (Wi‑Fi/4G). Ofrecemos site survey previo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-700/60">
+      <div class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-6 text-sm text-zinc-400">
+        <div class="inline-flex items-center gap-2 w-28">
+          <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27 4c-7.2 0-13 5.8-13 13v8c0 2.1.8 4.1 2.3 5.7l2.9 2.9c.9.9 1.4 2.1 1.4 3.4v.2c0 1.6-.6 3.1-1.8 4.2l-2.6 2.6c-2.2 2.2-2.2 5.7 0 7.9 1.1 1.1 2.5 1.6 4 1.6h9.3c2.7 0 5.2-1.4 6.6-3.7l12.8-21.4c3.2-5.4-.6-12.2-6.8-12.2H38l2.7-6.5C42 8.2 39.9 4 35.9 4H27z" fill="#A6E22E"/>
+            <path d="M33 13l-7 14h10l-5 12 17-19h-12l4-7h-7z" fill="#231B2E"/>
+          </svg>
+          <span>Plug&Go</span>
+        </div>
+        <div>
+          <div class="font-semibold text-zinc-200">Empresa</div>
+          <ul class="mt-2 space-y-1">
+            <li><a href="#features" class="hover:text-zinc-100">Características</a></li>
+            <li><a href="#productos" class="hover:text-zinc-100">Productos</a></li>
+            <li><a href="#franquicias" class="hover:text-zinc-100">Franquicias</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold text-zinc-200">Contacto</div>
+          <ul class="mt-2 space-y-1">
+            <li>hola@plugandgo.com.ar</li>
+            <li>WhatsApp +54 9 11 0000 0000</li>
+            <li>Política de Privacidad</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center text-xs text-zinc-500 pb-6">© 2025 Plug&Go S.R.L. — Argentina</div>
+    </footer>
+  </body>
+</html>
